@@ -5,4 +5,14 @@ These scripts use ghostscript and ImageMagick to render a pdf file (input pdf) i
 
 Works on BSD, not tested on Linux.
 
+Advantages:
+ * Guaranteed free of malicious code
+ * rendering takes fewer CPU cycles 
+
+
+
+Disadvantages:
+ * Larger file
+ * Forms do no longer work
+ * Selecting text / copying text does not work
 

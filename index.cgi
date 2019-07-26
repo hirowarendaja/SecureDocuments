@@ -21,7 +21,7 @@ my $pdfbasename = GetBasename($pdfurl);
 my $returnpath = "./dl/$pdfbasename";
 
 if (-e $returnpath) {
-	print "Target file already exists!";
+	print "Target file already exists <a href=\"$returnpath\"> here</a>!";
 	exit;}
 my $response = `./rerender.sh "$pdfurl" "$pdfbasename" 123`;
 if (-e $returnpath) {
