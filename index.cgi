@@ -8,6 +8,7 @@ my $cgi = new CGI();
 if (! $cgi->param("u") ) {
 #we're invoked directly, display the form and get out.
 	print "Content-type: text/html\n\n";
+	DisplayForm();
 #	 print "<html><head><title>Secure Documents</title><meta http-equiv=\"refresh\" content=\"0; url=/\" /></head><body></body></html>";
 	exit;
 }
@@ -66,6 +67,7 @@ sub GetBasename {
 # DisplayForm - spits out HTML to display our upload form.
 #
 sub DisplayForm {
+
 open (HTMLFORM, "<form.html") or die "Couldn't open file $!";
 while(<HTMLFORM>) {
    print "$_";
