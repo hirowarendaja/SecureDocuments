@@ -1,19 +1,26 @@
-if [ $# -eq 3 ]
-  then
+if [ $# -eq 2 ]
+then
+	MYCONVERT=`which convert`
+	MYGS=`which gs`	
+	MYWGET=`which wget`
+	MYECHO=`which echo`
+	MYMKDIR=`which mkdir`
+	MYRM=`which rm`
+	MYMV=`which mv`
         if [ -d "tempnew" ];
-then 
-        echo Dir tempnew already exists - other instance running?
-        exit 1
-fi
-        mkdir tempnew
-        echo $1 $2 $3>> ./urllog.txt
+	then 
+        	$MYECHO Dir tempnew already exists - other instance running?
+        	exit 1
+	fi
+        $MYMKDIR tempnew
+        $MYECHO $1 $2 $3>> ./urllog.txt
         cd tempnew
-        /usr/local/bin/wget "$1" -Otempfile.pdf
-        echo quit | /usr/local/bin/gs -sDEVICE=pnggray -sOutputFile=f%d.png -r300 tempfile.pdf
-        /usr/local/bin/convert -density 300 ./f*.png -resize 50% "[DocSec]$2"
-        mv "[DocSec]$2" ../dl/
+        $MYWGET "$1" -Otempfile.pdf
+        $MYECHO quit | $MYGS -sDEVICE=pnggray -sOutputFile=f%d.png -r300 tempfile.pdf
+        $MYCONVERT -density 300 ./f*.png -resize 50% "$2"
+        $MYMV "$2" ../dl/
         cd ..
-        rm -rf ./tempnew
+        $MYRM -rf ./tempnew
 else
-echo "Please use $0 URL FILENAME 123 not $1 $2 $3"
+	$MYECHO "Please use $0 URL FILENAME, not $0 $1 $2!"
 fi
