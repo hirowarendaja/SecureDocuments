@@ -1,7 +1,7 @@
 # SecureDocuments
 Secure Documents consists of a webform (form.html), a Perl CGI script (index.cgi) as middleware and a shell script (rerender.sh) doing the actual conversion.
 
-# Eliminating the Malicious Document Attack Vector
+## Eliminating the Malicious Document Attack Vector
 
 The risk of opening documents from untrusted sources was known to the IT-Sec community for a long time. 
 Defending against this attack vector is no trivial task. 
@@ -12,17 +12,19 @@ In this use case there is no need for editing the documents, just reading or pri
 This is where SecureDocuments can help:
 These scripts use GhostScript and ImageMagick to render a pdf file (input pdf) into images, then repackaging the images into a pdf simmilar to the input pdf.
 
-# Supportes File Formats
+## Supportes File Formats
 This version of SecureDocuments works with PDF and PS. 
 Due to the high CPU cycles demanded by the rerendering, color is rendered into greyscale.
 
-# Platforms
+## Supported Operating Systems
 SecureDocuments works on BSD and on Linux.
 
-## Cost / Benefit
+## Cost / Benefit Analysis
 Advantages:
  * Guaranteed free of malicious code
  * Rendering rerendered documents probably takes fewer CPU cycles 
+ * Free as in Freedom
+ * Open source
 
 Disadvantages:
  * Larger file
