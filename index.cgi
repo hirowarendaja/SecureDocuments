@@ -8,6 +8,9 @@ if (! $cgi->param("u") ) {	#we're invoked directly, display the form and get out
 	exit;
 }
 my $pdfurl = $cgi->param('u');
+
+$pdfurl =~ s/(\")/%22/g;
+$pdfurl =~ s/( )|(\\r)|(\\n)|(\\)//g;
 my $pdfbasename = GetBasename($pdfurl);
 my $returnpath = "./dl/$pdfbasename";
 if (-e $returnpath) {
